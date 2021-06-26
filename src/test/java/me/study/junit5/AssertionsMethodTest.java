@@ -4,6 +4,8 @@ import me.study.junit5.model.User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Locale;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AssertionsMethodTest {
@@ -81,4 +83,21 @@ class AssertionsMethodTest {
                 () -> assertEquals(user.getPassword(), password)
         );
     }
+
+    @Test
+    @DisplayName("Assert throws")
+    void assert_throws() {
+        // given
+        User user = User.builder()
+                .username("user")
+                .build();
+
+        // when
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, user::getException);
+
+        // then
+        assertEquals("Get Exception", exception.getMessage());
+
+    }
+
 }
