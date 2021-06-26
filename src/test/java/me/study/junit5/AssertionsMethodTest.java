@@ -39,4 +39,23 @@ class AssertionsMethodTest {
         // then
         assertNotNull(username);
     }
+
+    @Test
+    @DisplayName("Assert true")
+    void assert_true() {
+        // given
+        User user = User.builder()
+                .username("user")
+                .build();
+
+        User sameUser = User.builder()
+                .username(user.getUsername())
+                .build();
+        // when
+        boolean result = user.equals(sameUser);
+
+        // then
+        assertTrue(result);
+
+    }
 }
