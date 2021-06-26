@@ -4,6 +4,7 @@ import me.study.junit5.model.User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
 import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -100,4 +101,16 @@ class AssertionsMethodTest {
 
     }
 
+    @Test
+    @DisplayName("Assert timeout")
+    void assert_timeout() {
+        // given
+        User user = User.builder().build();
+
+        // when
+
+
+        // then
+        assertTimeout(Duration.ofMillis(300), user::sleep);
+    }
 }
