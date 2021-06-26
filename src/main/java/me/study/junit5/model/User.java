@@ -16,6 +16,10 @@ public class User {
         throw new IllegalArgumentException("Get Exception");
     }
 
+    public void sleep() throws InterruptedException {
+        Thread.sleep(300);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
