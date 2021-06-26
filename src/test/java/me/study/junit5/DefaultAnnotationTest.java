@@ -2,19 +2,24 @@ package me.study.junit5;
 
 import org.junit.jupiter.api.*;
 
-
-class StudyTest {
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+class DefaultAnnotationTest {
 
     @Test
     @DisplayName("\uD83D\uDE31")
-    void create_new_study() {
-        Study study = new Study();
-        Assertions.assertNotNull(study);
+    void default_annotation_test() {
+        System.out.println("Display name with emoji");
     }
 
     @Test
-    void create_new_study_again() {
-        System.out.println("create1");
+    void display_name_generation_replace_underscores() {
+        System.out.println("Display name generation");
+    }
+
+    @Test
+    @Disabled
+    void disabled_test() {
+        System.out.println("Disabled test");
     }
 
     @BeforeAll
