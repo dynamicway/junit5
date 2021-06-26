@@ -9,19 +9,34 @@ import static org.junit.jupiter.api.Assertions.*;
 class AssertionsMethodTest {
 
     @Test
-    @DisplayName("Assert Equals")
+    @DisplayName("Assert equals")
     void assert_equals() {
         // given
-        User user1 = User.builder()
+        User user = User.builder()
                 .id(1L)
-                .username("user1")
+                .username("user")
                 .password("pass1")
                 .build();
 
         // when
-        String username = user1.getUsername();
+        String username = user.getUsername();
 
         // then
-        assertEquals(user1.getUsername(), username);
+        assertEquals(user.getUsername(), username);
+    }
+
+    @Test
+    @DisplayName("Assert not null")
+    void assert_not_null() {
+        // given
+        User user = User.builder()
+                .username("user")
+                .build();
+
+        // when
+        String username = user.getUsername();
+
+        // then
+        assertNotNull(username);
     }
 }
