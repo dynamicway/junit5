@@ -5,7 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
-import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -112,5 +111,35 @@ class AssertionsMethodTest {
 
         // then
         assertTimeout(Duration.ofMillis(300), user::sleep);
+    }
+
+    @Test
+    @DisplayName("Assert message")
+    void assert_message() {
+        // given
+        User user = User.builder()
+                .username("user")
+                .build();
+
+        // when
+        String username = null;
+
+        // then
+        assertEquals(user.getUsername(), username, "user name is null");
+    }
+
+    @Test
+    @DisplayName("Assert message with lambda")
+    void assert_message_lambda() {
+        // given
+        User user = User.builder()
+                .username("user")
+                .build();
+
+        // when
+        String username = null;
+
+        // then
+        assertEquals(user.getUsername(), username, () -> "user name is null");
     }
 }
