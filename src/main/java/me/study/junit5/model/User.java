@@ -12,6 +12,10 @@ public class User {
     private String username;
     private String password;
 
+    public void getException() {
+        throw new IllegalArgumentException("Get Exception");
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
