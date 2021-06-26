@@ -140,6 +140,6 @@ class AssertionsMethodTest {
         String username = null;
 
         // then
-        assertEquals(user.getUsername(), username, () -> "user name is null");
+        assertEquals(user.getUsername(), username, () -> "user name is null"); // calculate message when test has fail
     }
 }
