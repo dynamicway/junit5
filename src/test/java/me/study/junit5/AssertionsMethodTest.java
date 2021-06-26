@@ -58,4 +58,27 @@ class AssertionsMethodTest {
         assertTrue(result);
 
     }
+
+    @Test
+    @DisplayName("Assert all")
+    void assert_all() {
+        // given
+        User user = User.builder()
+                .id(1L)
+                .username("user")
+                .password("password")
+                .build();
+
+        // when
+        Long id = user.getId();
+        String username = user.getUsername();
+        String password = user.getPassword();
+
+        // then
+        assertAll(
+                () -> assertEquals(user.getId(), id),
+                () -> assertEquals(user.getUsername(), username),
+                () -> assertEquals(user.getPassword(), password)
+        );
+    }
 }
