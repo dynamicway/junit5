@@ -1,9 +1,12 @@
 package me.study.junit5.store.domain;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Getter
 public class Store {
 
     @Id
